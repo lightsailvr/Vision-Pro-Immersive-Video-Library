@@ -8,48 +8,60 @@
 import SwiftUI
 import RealityKit
 import RealityKitContent
+import UniformTypeIdentifiers
 
 struct ContentView: View {
 
-    @State private var showImmersiveSpace = false
-    @State private var immersiveSpaceIsShown = false
+    //git@Binding var document: VideoDocument
 
-    @Environment(\.openImmersiveSpace) var openImmersiveSpace
-    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @StateObject private var videoLibrary = VideoLibrary()
+    @State private var showDocumentPicker = false
+
 
     var body: some View {
-        VStack {
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 50)
-
-            Text("Hello, world!")
-
-            Toggle("Show Immersive Space", isOn: $showImmersiveSpace)
-                .toggleStyle(.button)
-                .padding(.top, 50)
+        Button("Select Video Playlist") {
+            showDocumentPicker = true
         }
-        .padding()
-        .onChange(of: showImmersiveSpace) { _, newValue in
-            Task {
-                if newValue {
-                    switch await openImmersiveSpace(id: "ImmersiveSpace") {
-                    case .opened:
-                        immersiveSpaceIsShown = true
-                    case .error, .userCancelled:
-                        fallthrough
-                    @unknown default:
-                        immersiveSpaceIsShown = false
-                        showImmersiveSpace = false
-                    }
-                } else if immersiveSpaceIsShown {
-                    await dismissImmersiveSpace()
-                    immersiveSpaceIsShown = false
-                }
-            }
+        .sheet(isPresented: $showDocumentPicker) {
+            DocumentPicker(documentTypes: [.json], onPick: { url in
+                // Handle the picked document URL
+                videoLibrary.loadVideos(from: url)
+            })
         }
+        
+        List(videoLibrary.videos) { video in
+                Text(video.title) // Display the title or any other property
+        }
+        
     }
 }
 
-#Preview(windowStyle: .automatic) {
-    ContentView()
+struct DocumentPicker: UIViewControllerRepresentable {
+    var documentTypes: [UTType]
+    var onPick: (URL) -> Void
+
+    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
+        let picker = UIDocumentPickerViewController(forOpeningContentTypes: documentTypes, asCopy: true)
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: Context) {}
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject, UIDocumentPickerDelegate {
+        var parent: DocumentPicker
+
+        init(_ documentPicker: DocumentPicker) {
+            self.parent = documentPicker
+        }
+
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            guard let pickedURL = urls.first else { return }
+            parent.onPick(pickedURL)
+        }
+    }
 }

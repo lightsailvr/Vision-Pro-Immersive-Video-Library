@@ -14,6 +14,8 @@
 		637CD8372B87157C003287E7 /* ImageBasedLighting.skybox in Resources */ = {isa = PBXBuildFile; fileRef = 637CD8362B87157C003287E7 /* ImageBasedLighting.skybox */; };
 		637CD8392B87157D003287E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637CD8382B87157D003287E7 /* Assets.xcassets */; };
 		637CD83C2B87157D003287E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637CD83B2B87157D003287E7 /* Preview Assets.xcassets */; };
+		63EB571D2B88574E00FD5666 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB571C2B88574E00FD5666 /* Video.swift */; };
+		63EB57212B8862F400FD5666 /* VideoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB57202B8862F400FD5666 /* VideoLibrary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		637CD8382B87157D003287E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		637CD83B2B87157D003287E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		637CD83D2B87157D003287E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63EB571C2B88574E00FD5666 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		63EB57202B8862F400FD5666 /* VideoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLibrary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				637CD8302B87157C003287E7 /* ImmersiveVideoPlayerApp.swift */,
+				63EB571B2B88573C00FD5666 /* Models */,
 				637CD8322B87157C003287E7 /* ContentView.swift */,
 				637CD8342B87157C003287E7 /* ImmersiveView.swift */,
 				637CD8362B87157C003287E7 /* ImageBasedLighting.skybox */,
@@ -85,6 +90,15 @@
 				637CD83B2B87157D003287E7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		63EB571B2B88573C00FD5666 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				63EB571C2B88574E00FD5666 /* Video.swift */,
+				63EB57202B8862F400FD5666 /* VideoLibrary.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +177,9 @@
 			files = (
 				637CD8332B87157C003287E7 /* ContentView.swift in Sources */,
 				637CD8312B87157C003287E7 /* ImmersiveVideoPlayerApp.swift in Sources */,
+				63EB57212B8862F400FD5666 /* VideoLibrary.swift in Sources */,
 				637CD8352B87157C003287E7 /* ImmersiveView.swift in Sources */,
+				63EB571D2B88574E00FD5666 /* Video.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
