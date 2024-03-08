@@ -1,0 +1,50 @@
+[
+    {
+        "id": 0,
+        "url" : "https://lsvr-website.s3.us-west-1.amazonaws.com/soulsessions_umi/video_4k.mp4",
+        "title": "Formotion 360",
+        "client": "adidas",
+        "description": "Light Sail VR worked with 2020 small agency of the year Grow to produce four 360 video spots that would live on adidas.com to premiere their new FORMOTION women's sportswear line. Each spot features adidas brand talent and was captured nodally at 12k resolution for an 8k playback on YouTube.",
+        "poster": "https://lightsail-public.s3.us-west-2.amazonaws.com/demo_content/posters/Adidas_Poster_vp.png",
+        "thumbnail": "https://lightsail-public.s3.us-west-2.amazonaws.com/demo_content/thumbnails/Adidas_Thumb.png",
+        "category": "Commercial",
+        "sphereType": "360",
+        "stereoscopic": "none"
+    },
+    {
+        "id": 1,
+        "url" : "https://lsvr-website.s3.us-west-1.amazonaws.com/soulsessions_umi/video_4k.mp4",
+        "title": "Introduction to 180 VR",
+        "client": "Canon",
+        "description": "Put on your VR headset and let director Matthew Celia guide you on an immersive introduction to stereoscopic 3D 180° VR filmmaking. As the Creative Director of Light Sail VR, Celia has made many immersive films using a variety of equipment, but nothing has him more excited than Canon’s revolutionary VR lens: the RF5.2mm F2.8 L Dual Fisheye Lens for the EOS VR System.",
+        "poster": "https://lightsail-public.s3.us-west-2.amazonaws.com/demo_content/posters/Canon_Poster_vp.png",
+        "thumbnail": "https://lightsail-public.s3.us-west-2.amazonaws.com/demo_content/thumbnails/Canon_Thumb.png",
+        "category": "Commercial",
+        "sphereType": "180",
+        "stereoscopic": "sbs"
+    },
+    {
+        "id": 2,
+        "url" : "https://lsvr-website.s3.us-west-1.amazonaws.com/soulsessions_umi/video_4k.mp4",
+        "title": "Foo Fighters: The Next Stage",
+        "client": "Meta",
+        "description": "Watch Foo Fighters take the VR stage for the first time ever and perform in an up close and personal concert in this piece by Supersphere VR & Meta, with post production by Light Sail VR. Consider this your free, front-row ticket to rock out with the legendary Rock and Roll Hall of Famers and other fans.",
+        "poster": "https://lightsail-public.s3.us-west-2.amazonaws.com/demo_content/posters/FooFighters_Poster_vp.png",
+        "thumbnail": "https://lightsail-public.s3.us-west-2.amazonaws.com/demo_content/thumbnails/FooFighters_Thumb.png",
+        "category": "Music",
+        "sphereType": "180",
+        "stereoscopic": "none"
+    },
+    {
+        "id": 3,
+        "url" : "https://lsvr-website.s3.us-west-1.amazonaws.com/soulsessions_umi/video_4k.mp4",
+        "title": "Overtime Elite VR",
+        "client": "Meta",
+        "description": "Watch Foo Fighters take the VR stage for the first time ever and perform in an up close and personal concert in this piece by Supersphere VR & Meta, with post production by Light Sail VR. Consider this your free, front-row ticket to rock out with the legendary Rock and Roll Hall of Famers and other fans.",
+        "poster": "https://lightsail-public.s3.us-west-2.amazonaws.com/demo_content/posters/Overtime_Poster_vp.png",
+        "thumbnail": "https://lightsail-public.s3.us-west-2.amazonaws.com/demo_content/thumbnails/Overtime_Thumb.png",
+        "category": "Documentary",
+        "sphereType": "360",
+        "stereoscopic": "ou"
+    }
+]

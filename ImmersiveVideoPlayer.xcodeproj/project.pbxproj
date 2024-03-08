@@ -3,10 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63152F4C2B89BFD7004D61D9 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63152F4B2B89BFD7004D61D9 /* VideoPlayer.swift */; };
+		63152F4E2B89C426004D61D9 /* 180Sphere_v2.usdc in Resources */ = {isa = PBXBuildFile; fileRef = 63152F4D2B89C426004D61D9 /* 180Sphere_v2.usdc */; };
+		632294162B92AD7300B71180 /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632294152B92AD7300B71180 /* DownloadView.swift */; };
+		632294182B95058D00B71180 /* PreviewLibrary.json in Resources */ = {isa = PBXBuildFile; fileRef = 632294172B95058D00B71180 /* PreviewLibrary.json */; };
+		6322941A2B950B3200B71180 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632294192B950B3200B71180 /* PreviewData.swift */; };
+		6325C6312B990E1D004493B4 /* VideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325C62E2B990E1D004493B4 /* VideoInfo.swift */; };
+		6325C6332B990E1D004493B4 /* CMProjectionType+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325C6302B990E1D004493B4 /* CMProjectionType+String.swift */; };
+		6325C6362B99122B004493B4 /* VideoToolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325C6352B99122B004493B4 /* VideoToolkit.swift */; };
+		634E1DC12B8DB60300A2E268 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 634E1DC02B8DB60300A2E268 /* Alamofire */; };
+		6375B4A22B8926400023DCBD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375B4A12B8926400023DCBD /* LibraryView.swift */; };
+		6375B4A42B8947830023DCBD /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375B4A32B8947830023DCBD /* PosterView.swift */; };
 		637CD82F2B87157C003287E7 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 637CD82E2B87157C003287E7 /* RealityKitContent */; };
 		637CD8312B87157C003287E7 /* ImmersiveVideoPlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637CD8302B87157C003287E7 /* ImmersiveVideoPlayerApp.swift */; };
 		637CD8332B87157C003287E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637CD8322B87157C003287E7 /* ContentView.swift */; };
@@ -14,11 +25,23 @@
 		637CD8372B87157C003287E7 /* ImageBasedLighting.skybox in Resources */ = {isa = PBXBuildFile; fileRef = 637CD8362B87157C003287E7 /* ImageBasedLighting.skybox */; };
 		637CD8392B87157D003287E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637CD8382B87157D003287E7 /* Assets.xcassets */; };
 		637CD83C2B87157D003287E7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637CD83B2B87157D003287E7 /* Preview Assets.xcassets */; };
+		6389E0B32B968E30001AE818 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6389E0B22B968E30001AE818 /* DetailsView.swift */; };
+		63DB36182B8E1EAD007E84B6 /* VideoDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB36172B8E1EAD007E84B6 /* VideoDownloader.swift */; };
 		63EB571D2B88574E00FD5666 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB571C2B88574E00FD5666 /* Video.swift */; };
 		63EB57212B8862F400FD5666 /* VideoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB57202B8862F400FD5666 /* VideoLibrary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63152F4B2B89BFD7004D61D9 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		63152F4D2B89C426004D61D9 /* 180Sphere_v2.usdc */ = {isa = PBXFileReference; lastKnownFileType = file; path = 180Sphere_v2.usdc; sourceTree = "<group>"; };
+		632294152B92AD7300B71180 /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		632294172B95058D00B71180 /* PreviewLibrary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PreviewLibrary.json; sourceTree = "<group>"; };
+		632294192B950B3200B71180 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		6325C62E2B990E1D004493B4 /* VideoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoInfo.swift; sourceTree = "<group>"; };
+		6325C6302B990E1D004493B4 /* CMProjectionType+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMProjectionType+String.swift"; sourceTree = "<group>"; };
+		6325C6352B99122B004493B4 /* VideoToolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoToolkit.swift; sourceTree = "<group>"; };
+		6375B4A12B8926400023DCBD /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		6375B4A32B8947830023DCBD /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
 		637CD8292B87157C003287E7 /* ImmersiveVideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImmersiveVideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		637CD82D2B87157C003287E7 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		637CD8302B87157C003287E7 /* ImmersiveVideoPlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveVideoPlayerApp.swift; sourceTree = "<group>"; };
@@ -28,6 +51,8 @@
 		637CD8382B87157D003287E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		637CD83B2B87157D003287E7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		637CD83D2B87157D003287E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6389E0B22B968E30001AE818 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		63DB36172B8E1EAD007E84B6 /* VideoDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDownloader.swift; sourceTree = "<group>"; };
 		63EB571C2B88574E00FD5666 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		63EB57202B8862F400FD5666 /* VideoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLibrary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,12 +63,45 @@
 			buildActionMask = 2147483647;
 			files = (
 				637CD82F2B87157C003287E7 /* RealityKitContent in Frameworks */,
+				634E1DC12B8DB60300A2E268 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63152F502B89C43C004D61D9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				637CD8382B87157D003287E7 /* Assets.xcassets */,
+				63152F4D2B89C426004D61D9 /* 180Sphere_v2.usdc */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6325C6342B990E21004493B4 /* SwansonPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				6325C6352B99122B004493B4 /* VideoToolkit.swift */,
+				6325C6302B990E1D004493B4 /* CMProjectionType+String.swift */,
+				6325C62E2B990E1D004493B4 /* VideoInfo.swift */,
+			);
+			path = SwansonPlayer;
+			sourceTree = "<group>";
+		};
+		6375B4A52B8947890023DCBD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				637CD8322B87157C003287E7 /* ContentView.swift */,
+				6375B4A12B8926400023DCBD /* LibraryView.swift */,
+				6375B4A32B8947830023DCBD /* PosterView.swift */,
+				637CD8342B87157C003287E7 /* ImmersiveView.swift */,
+				632294152B92AD7300B71180 /* DownloadView.swift */,
+				6389E0B22B968E30001AE818 /* DetailsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		637CD8202B87157C003287E7 = {
 			isa = PBXGroup;
 			children = (
@@ -65,11 +123,11 @@
 			isa = PBXGroup;
 			children = (
 				637CD8302B87157C003287E7 /* ImmersiveVideoPlayerApp.swift */,
+				6325C6342B990E21004493B4 /* SwansonPlayer */,
+				6375B4A52B8947890023DCBD /* Views */,
 				63EB571B2B88573C00FD5666 /* Models */,
-				637CD8322B87157C003287E7 /* ContentView.swift */,
-				637CD8342B87157C003287E7 /* ImmersiveView.swift */,
 				637CD8362B87157C003287E7 /* ImageBasedLighting.skybox */,
-				637CD8382B87157D003287E7 /* Assets.xcassets */,
+				63152F502B89C43C004D61D9 /* Resources */,
 				637CD83D2B87157D003287E7 /* Info.plist */,
 				637CD83A2B87157D003287E7 /* Preview Content */,
 			);
@@ -87,7 +145,9 @@
 		637CD83A2B87157D003287E7 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				632294172B95058D00B71180 /* PreviewLibrary.json */,
 				637CD83B2B87157D003287E7 /* Preview Assets.xcassets */,
+				632294192B950B3200B71180 /* PreviewData.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -97,6 +157,8 @@
 			children = (
 				63EB571C2B88574E00FD5666 /* Video.swift */,
 				63EB57202B8862F400FD5666 /* VideoLibrary.swift */,
+				63152F4B2B89BFD7004D61D9 /* VideoPlayer.swift */,
+				63DB36172B8E1EAD007E84B6 /* VideoDownloader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,6 +181,7 @@
 			name = ImmersiveVideoPlayer;
 			packageProductDependencies = (
 				637CD82E2B87157C003287E7 /* RealityKitContent */,
+				634E1DC02B8DB60300A2E268 /* Alamofire */,
 			);
 			productName = ImmersiveVideoPlayer;
 			productReference = 637CD8292B87157C003287E7 /* ImmersiveVideoPlayer.app */;
@@ -148,6 +211,9 @@
 				Base,
 			);
 			mainGroup = 637CD8202B87157C003287E7;
+			packageReferences = (
+				634E1DBF2B8DB60300A2E268 /* XCLocalSwiftPackageReference "../../Downloads/Alamofire-master" */,
+			);
 			productRefGroup = 637CD82A2B87157C003287E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -162,7 +228,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				632294182B95058D00B71180 /* PreviewLibrary.json in Resources */,
 				637CD8392B87157D003287E7 /* Assets.xcassets in Resources */,
+				63152F4E2B89C426004D61D9 /* 180Sphere_v2.usdc in Resources */,
 				637CD83C2B87157D003287E7 /* Preview Assets.xcassets in Resources */,
 				637CD8372B87157C003287E7 /* ImageBasedLighting.skybox in Resources */,
 			);
@@ -175,10 +243,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63152F4C2B89BFD7004D61D9 /* VideoPlayer.swift in Sources */,
 				637CD8332B87157C003287E7 /* ContentView.swift in Sources */,
+				6325C6312B990E1D004493B4 /* VideoInfo.swift in Sources */,
 				637CD8312B87157C003287E7 /* ImmersiveVideoPlayerApp.swift in Sources */,
+				6322941A2B950B3200B71180 /* PreviewData.swift in Sources */,
+				6325C6332B990E1D004493B4 /* CMProjectionType+String.swift in Sources */,
+				63DB36182B8E1EAD007E84B6 /* VideoDownloader.swift in Sources */,
+				6389E0B32B968E30001AE818 /* DetailsView.swift in Sources */,
+				632294162B92AD7300B71180 /* DownloadView.swift in Sources */,
 				63EB57212B8862F400FD5666 /* VideoLibrary.swift in Sources */,
+				6325C6362B99122B004493B4 /* VideoToolkit.swift in Sources */,
 				637CD8352B87157C003287E7 /* ImmersiveView.swift in Sources */,
+				6375B4A22B8926400023DCBD /* LibraryView.swift in Sources */,
+				6375B4A42B8947830023DCBD /* PosterView.swift in Sources */,
 				63EB571D2B88574E00FD5666 /* Video.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,7 +458,18 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		634E1DBF2B8DB60300A2E268 /* XCLocalSwiftPackageReference "../../Downloads/Alamofire-master" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../Downloads/Alamofire-master";
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		634E1DC02B8DB60300A2E268 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Alamofire;
+		};
 		637CD82E2B87157C003287E7 /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;
