@@ -16,8 +16,6 @@ struct Video: Hashable, Codable, Identifiable {
     let poster: String
     let thumbnail: String
     let category: String
-    let sphereType: String
-    let stereoscopic: String
 }
 
 //EXAMPLE JSON:
@@ -28,6 +26,4 @@ struct Video: Hashable, Codable, Identifiable {
 //        "description": "description",
 //        "poster": "https://lightsail-public.s3.us-west-2.amazonaws.com/demo_content/posters/Overtime_Poster_vp.png",
 //        "thumbnail": "https://lightsail-public.s3.us-west-2.amazonaws.com/demo_content/thumbnails/Overtime_Thumb.png",
-//        "category": "Documentary",
-//        "sphereType": "360", | 180 or 360
-//        "stereoscopic": "ou" | ou = over under, sbs = side by side, none = monoscopic
+//        "category": "Documentary"

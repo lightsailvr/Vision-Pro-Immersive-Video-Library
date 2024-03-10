@@ -11,81 +11,58 @@ import RealityKitContent
 import UniformTypeIdentifiers
 
 struct ContentView: View {
-    @EnvironmentObject var videoLibrary: VideoLibrary
+    @Environment(\.videoLibrary) private var videoLibrary
+    
     @State private var showDocumentPicker = false
     @State private var navigateToLibraryView = false
-    @State private var selectedDocumentURL: URL?
     @State private var loadPreviousLibrary = true
-
+    
     var body: some View {
         NavigationStack {
-                VStack{
-                    Button("Select Video Playlist") {
-                        showDocumentPicker = true
-                    } .padding()
-                        .fullScreenCover(isPresented: $showDocumentPicker) {
-                            DocumentPicker(documentTypes: [.json], onPick: { url in
-                                // Handle the picked document URL
-                                videoLibrary.copyFileToLibrariesFolder(sourceURL: url)
-                                videoLibrary.loadVideos(from: url)
-                                //print (url.absoluteString)
-                                selectedDocumentURL = url
-                                navigateToLibraryView = true
-                            })
-                        }
-                        .navigationDestination(isPresented: $navigateToLibraryView) {
-                            LibraryView(videos: videoLibrary.videos, libraryFileName: selectedDocumentURL?.lastPathComponent ?? "Default Library")
-                        }
-                    }.onAppear {
-                        // Call your function here
-                        if let firstFileURL = videoLibrary.getUrlOfFirstFileInLibrariesFolder() {
-                            // Do something with the first file URL
-                            loadPreviousLibrary = true
-                            videoLibrary.loadVideos(from: firstFileURL)
+            VStack{
+                Image("LSVR_Logo_2023_FullColor")
+                    .resizable()
+                    .frame(width: 400, height: 300)
+                    .aspectRatio(contentMode: .fit)
+                    .padding(20)
+                Text("Immersive Video Player")
+                    .font(.title)
+                Text("Created by Matthew Celia")
+                    .foregroundStyle(.secondary)
+                Text("Version 1.0")
+                    .foregroundStyle(.secondary)
+                
+                Button("Select Video Playlist") {
+                    showDocumentPicker = true
+                } .padding()
+                    .fullScreenCover(isPresented: $showDocumentPicker) {
+                        DocumentPicker(documentTypes: [.json], onPick: { url in
+                            // Handle the picked document URL
+                            videoLibrary.copyFileToLibrariesFolder(sourceURL: url)
+                            videoLibrary.loadVideos(from: url)
                             navigateToLibraryView = true
-                            // Optionally, load or process the file as needed
-                        } else {
-                            loadPreviousLibrary = false
-                            showDocumentPicker = true
-                        }
+                        })
                     }
+                    .navigationDestination(isPresented: $navigateToLibraryView) {
+                        LibraryView(videos: videoLibrary.videos)
+                    }
+            }.onAppear {
+                if let firstFileURL = videoLibrary.getUrlOfFirstFileInLibrariesFolder() {
+                    // Do something with the first file URL
+                    loadPreviousLibrary = true
+                    videoLibrary.loadVideos(from: firstFileURL)
+                    navigateToLibraryView = true
+                    // Optionally, load or process the file as needed
+                } else {
+                    loadPreviousLibrary = false
+                    showDocumentPicker = false
                 }
-            
-    }
-}
-
-struct DocumentPicker: UIViewControllerRepresentable {
-    var documentTypes: [UTType]
-    var onPick: (URL) -> Void
-
-    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
-        let picker = UIDocumentPickerViewController(forOpeningContentTypes: documentTypes, asCopy: true)
-        picker.delegate = context.coordinator
-        return picker
-    }
-
-    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: Context) {}
-
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
-    }
-
-    class Coordinator: NSObject, UIDocumentPickerDelegate {
-        var parent: DocumentPicker
-
-        init(_ documentPicker: DocumentPicker) {
-            self.parent = documentPicker
-        }
-
-        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-            guard let pickedURL = urls.first else { return }
-            parent.onPick(pickedURL)
+            }
         }
     }
 }
 
 #Preview {
     ContentView()
-        .environmentObject(VideoLibrary())
 }
 

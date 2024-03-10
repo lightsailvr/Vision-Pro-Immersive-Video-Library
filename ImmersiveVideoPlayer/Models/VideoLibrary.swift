@@ -10,11 +10,10 @@ import Observation
 import Combine
 import SwiftUI
 
-class VideoLibrary: ObservableObject {
-    @Published var videos: [Video] = []
-    
-    @Published var currentVideo: Video? = nil
-    
+@Observable class VideoLibrary {
+    var videos: [Video] = []
+    var libraryFileName = ""
+    var libraryPath: URL?
     
     func getUrlOfFirstFileInLibrariesFolder() -> URL? {
         let fileManager = FileManager.default
@@ -65,14 +64,14 @@ class VideoLibrary: ObservableObject {
                 print("Failed to copy file: \(error)")
             }
         }
-    
-    
-    
-    
-    
-    
+
     func downloadImageAsset(video: Video) -> String {
         return VideoDownloader().downloadVideo(fileToDownload: URL(string: video.poster)!)
+    }
+    
+    func getLibraryName() -> String {
+        guard let libraryFileName = libraryPath?.lastPathComponent else { return "Default Library"}
+        return libraryFileName
     }
     
     func loadVideos(from url: URL){
@@ -87,18 +86,15 @@ class VideoLibrary: ObservableObject {
             videos = []
         }
     }
-    
-    func setCurrentVideo(selectedVideo: Video) {
-        // Assuming the ID is a valid index within the videos array
-        let index = selectedVideo.id
-        // Ensure the index is within the bounds of the videos array to avoid out-of-bounds errors
-        if index >= 0 && index < videos.count {
-            currentVideo = videos[index]
-            print ("set current video to " + currentVideo!.title)
-        } else {
-            // Handle the case where the index is out of bounds
-            print("Video ID is out of the array bounds")
-            currentVideo = nil
-        }
+}
+
+extension EnvironmentValues {
+    var videoLibrary: VideoLibrary {
+        get { self[LibraryKey.self] }
+        set{ self[LibraryKey.self] = newValue }
     }
+}
+
+private struct LibraryKey: EnvironmentKey {
+    static var defaultValue: VideoLibrary = VideoLibrary()
 }

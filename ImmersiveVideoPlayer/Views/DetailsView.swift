@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct DetailsView: View {
-    @EnvironmentObject var videoPlayer: VideoPlayer
+    @EnvironmentObject private var videoPlayer: VideoPlayer
     @State private var imageData: Data?
     
     @Binding var showDetails: Bool
     @Binding var showImmersiveSpace: Bool
     @Binding var isVideoLocal: Bool
+    var currentVideoTitle: String
+    var currentVideoDescription: String
     
     var body: some View {
         HStack {
@@ -28,9 +30,9 @@ struct DetailsView: View {
                     
             }
             VStack(alignment: .leading, content: {
-                Text(videoPlayer.currentVideoTitle)
+                Text(currentVideoTitle)
                     .font(.headline)
-                Text(videoPlayer.currentVideoDescription)
+                Text(currentVideoDescription)
                     .foregroundStyle(.secondary)
                 
             }).frame(width: 500, alignment: .leading)
@@ -50,8 +52,7 @@ struct DetailsView: View {
                             .clipShape(Circle())
                     })
                 }
-                
-            }.hoverEffect(.highlight)
+            }
             
             
         }.padding(30)
@@ -74,5 +75,6 @@ struct DetailsView: View {
 }
 
 #Preview {
-    DetailsView(showDetails: .constant(true), showImmersiveSpace: .constant(false), isVideoLocal: .constant(false))
+    DetailsView(showDetails: .constant(true), showImmersiveSpace: .constant(false), isVideoLocal: .constant(true), currentVideoTitle: "Introduction to 180 VR", currentVideoDescription: "Put on your VR headset and let director Matthew Celia guide you on an immersive introduction to stereoscopic 3D 180° VR filmmaking. As the Creative Director of Light Sail VR, Celia has made many immersive films using a variety of equipment, but nothing has him more excited than Canon’s revolutionary VR lens: the RF5.2mm F2.8 L Dual Fisheye Lens for the EOS VR System.")
+        .environmentObject(VideoPlayer())
 }

@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct PosterView: View {
-
+    
     let title: String
     let posterURL: String
     let category: String
     let client: String
     @State private var imageData: Data?
-
+    
     var body: some View {
         
         ZStack {
-            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-                .frame(width: 258, height: 400)
-                .opacity(0.3)
-                
+//            RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+//                .frame(width: 258, height: 430)
+//                .opacity(0.3)
+//            
             
             VStack (alignment: .leading)
             {
@@ -30,7 +30,7 @@ struct PosterView: View {
                         .resizable()
                         .frame(width: 238, height: 334, alignment: .top)
                         .cornerRadius(15)
-                        
+                    
                 } else {
                     ProgressView()
                         .onAppear {
@@ -45,31 +45,30 @@ struct PosterView: View {
                             .font(.caption)
                             .foregroundStyle(.tertiary)
                     }
-                    Spacer()
-                    Text(category)
-                        .padding([.leading, .trailing], 4)
-                        .padding([.top, .bottom], 4)
-                        .background(RoundedRectangle(cornerRadius: 5).stroke())
-                        .foregroundStyle(.secondary)
-                        .font(.footnote)
-                        
                 }
+                Text(category)
+                    .padding([.leading, .trailing], 4)
+                    .padding([.top, .bottom], 4)
+                    .background(RoundedRectangle(cornerRadius: 5).stroke())
+                    .foregroundStyle(.secondary)
+                    .font(.footnote)
+                    .frame(width: 238, alignment: .trailing)
             }.padding(20)
-        }.frame(width: 258, height: 400)
+        }.frame(width: 278, height: 480)
     }
     
     
     
     private func downloadImage() {
-            guard let url = URL(string: posterURL) else { return }
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data, error == nil {
-                    DispatchQueue.main.async {
-                        self.imageData = data
-                    }
+        guard let url = URL(string: posterURL) else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data, error == nil {
+                DispatchQueue.main.async {
+                    self.imageData = data
                 }
-            }.resume()
-        }
+            }
+        }.resume()
+    }
     
 }
 

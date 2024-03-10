@@ -34,7 +34,7 @@ struct DownloadView: View {
                 .padding()
                 .frame(height: 60)
             }
-        }
+        }.frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
     }
     
     func downloadFile(url: URL?) {

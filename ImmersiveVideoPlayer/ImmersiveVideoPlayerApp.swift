@@ -11,21 +11,25 @@ import UniformTypeIdentifiers
 @main
 struct ImmersiveVideoPlayerApp: App {
     
-    var videoLibrary = VideoLibrary()
     var videoPlayer = VideoPlayer()
+    var videoLibrary = VideoLibrary()
     
     var body: some Scene {
         WindowGroup(id: "ContentLibrary"){
             ContentView()
-                .environmentObject(videoLibrary)
                 .environmentObject(videoPlayer)
+                .environment(videoLibrary)
         }
 
         ImmersiveSpace(id: "ImmersiveSpace") {
             ImmersiveView()
-                .environmentObject(videoLibrary)
                 .environmentObject(videoPlayer)
         }.immersionStyle(selection: .constant(.full), in: .full)
+        
+        WindowGroup (id: "playercontrols"){
+            PlayerControls()
+                .environmentObject(videoPlayer)
+        }.windowStyle(.plain)
     }
 }
 

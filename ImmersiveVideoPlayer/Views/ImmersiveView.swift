@@ -14,19 +14,20 @@ import Foundation
 import Combine
 
 struct ImmersiveView: View {
-    
-    @EnvironmentObject var videoLibrary: VideoLibrary
     @EnvironmentObject var videoPlayer: VideoPlayer
     
     @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @Environment(\.openWindow) var openPlayerControls
+    @Environment(\.dismissWindow) var closePlayerControls
     
-    @State private var player: AVPlayer = AVPlayer()
     @State private var isURLSecurityScoped: Bool = false
     @State private var videoMaterial: VideoMaterial?
     
+    @State private var playerControlVisible = false
+    
     var body: some View {
         RealityView { content in
-            guard let url = videoPlayer.videoURL else {
+            guard let url = videoPlayer.returnLocalURL(localVideoName: videoPlayer.videoURL) else {
                 print("No video URL selected")
                 return
             }
@@ -46,7 +47,7 @@ struct ImmersiveView: View {
                 return
             }
             
-            videoMaterial = VideoMaterial(avPlayer: player)
+            videoMaterial = VideoMaterial(avPlayer: videoPlayer.player)
             guard let videoMaterial else {
                 print("Failed to create video material")
                 return
@@ -62,8 +63,8 @@ struct ImmersiveView: View {
             let collisionBox = makeCollisionBox(size: 20)
             content.add(collisionBox)
             
-            player.replaceCurrentItem(with: playerItem)
-            player.play()
+            videoPlayer.player.replaceCurrentItem(with: playerItem)
+            videoPlayer.playVideo()
         }
         .onDisappear {
             if isURLSecurityScoped, let url = videoPlayer.videoURL {
@@ -74,25 +75,28 @@ struct ImmersiveView: View {
             updateStereoMode()
         }
         .gesture(tapGesture)
-    }
-    func updateStereoMode() {
-        if let videoMaterial {
-            videoMaterial.controller.preferredViewingMode =
-            videoPlayer.isStereoEnabled ? .stereo : .mono
-        }
+        
+        
     }
     
     private var tapGesture: some Gesture {
         TapGesture()
             .targetedToAnyEntity()
             .onEnded{ _ in
-                //                    playerControlVisible.toggle()
-                //                    if playerControlVisible {
-                //                        openPlayerControls(id: "playercontrols")
-                //                    } else {
-                //                        closePlayerControls(id: "playercontrols")
-                //                    }
+                playerControlVisible.toggle()
+                if playerControlVisible {
+                    openPlayerControls(id: "playercontrols")
+                } else {
+                    closePlayerControls(id: "playercontrols")
+                }
             }
+    }
+    
+    func updateStereoMode() {
+        if let videoMaterial {
+            videoMaterial.controller.preferredViewingMode =
+            videoPlayer.isStereoEnabled ? .stereo : .mono
+        }
     }
     
     func makeCollisionBox(size: Float) -> Entity {
@@ -146,10 +150,11 @@ struct ImmersiveView: View {
         // parent to hold all of the entities.
         let entity = Entity()
         entity.children.append(contentsOf: faces)
-        
+            
         return entity
     }
 }
+
 
 //#Preview {
 //    ImmersiveView()

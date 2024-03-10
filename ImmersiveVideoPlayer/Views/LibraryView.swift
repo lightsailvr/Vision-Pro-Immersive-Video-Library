@@ -6,25 +6,20 @@
 //
 
 import SwiftUI
+import Observation
 
 struct LibraryView: View {
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
     @Environment(\.dismissWindow) private var dismissWindow
-    @EnvironmentObject var videoLibrary: VideoLibrary
-    @EnvironmentObject var videoPlayer: VideoPlayer
+    @Environment(\.videoLibrary) private var videoLibrary
+    @EnvironmentObject private var videoPlayer: VideoPlayer
+    
+    var videos: [Video]
+    
     @State private var showImmersiveSpace = false
     @State private var showDetails = false
     @State private var searchText: String = ""
     @State private var isVideoLocal: Bool = false
-    
-    var videos: [Video]
-    var libraryFileName: String
-    
-    init( videos: [Video], libraryFileName: String) {
-        self.videos = videos
-        self.libraryFileName = libraryFileName
-        
-    }
     
     var body: some View {
         
@@ -37,10 +32,10 @@ struct LibraryView: View {
                             showDetails = true
                         }, label: {
                             PosterView(title: video.title, posterURL: video.poster, category: video.category, client: video.client)
-                            
-                        }).hoverEffect()
-                    }.padding()
-                        .buttonStyle(.plain)
+                                .hoverEffect()
+                        }).buttonStyle(.plain)
+                    }.glassBackgroundEffect()
+                        .padding()
                     
                 }
             }.padding(.horizontal, 24)
@@ -49,21 +44,22 @@ struct LibraryView: View {
                         VStack (alignment: .leading, content: {
                             Text("Library")
                                 .font(.largeTitle)
-                            Text(libraryFileName)
+                            Text(videoLibrary.getLibraryName())
                                 .foregroundStyle(.tertiary)
-                        }).padding(.top, 20)
-                    }
-                    ToolbarItem{
-                        TextField("Search Library", text: $searchText)
-                            .textFieldStyle(.roundedBorder)
-                            .frame(width: 250)
+                        }).padding(20)
                             .padding(.top, 20)
                     }
+//                    ToolbarItem{
+//                        TextField("Search Library", text: $searchText)
+//                            .textFieldStyle(.roundedBorder)
+//                            .frame(width: 250)
+//                            .padding(.top, 20)
+//                    }
                 }
                 .toolbar {
                     ToolbarItemGroup(placement: .bottomOrnament){
                         if showDetails {
-                            DetailsView(showDetails: $showDetails, showImmersiveSpace: $showImmersiveSpace, isVideoLocal: $isVideoLocal)
+                            DetailsView(showDetails: $showDetails, showImmersiveSpace: $showImmersiveSpace, isVideoLocal: $isVideoLocal, currentVideoTitle: videoPlayer.currentVideoTitle, currentVideoDescription: videoPlayer.currentVideoDescription)
                         }
                     }
                 }
@@ -92,5 +88,6 @@ struct LibraryView: View {
 }
 
 #Preview {
-    LibraryView(videos: PreviewData.load(name: "PreviewLibrary"), libraryFileName: "TestData.json")
+    LibraryView(videos: PreviewData.load(name: "PreviewLibrary"))
+        .environmentObject(VideoPlayer())
 }
