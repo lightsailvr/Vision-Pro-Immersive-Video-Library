@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		6325C6312B990E1D004493B4 /* VideoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325C62E2B990E1D004493B4 /* VideoInfo.swift */; };
 		6325C6332B990E1D004493B4 /* CMProjectionType+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325C6302B990E1D004493B4 /* CMProjectionType+String.swift */; };
 		6325C6362B99122B004493B4 /* VideoToolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6325C6352B99122B004493B4 /* VideoToolkit.swift */; };
-		634E1DC12B8DB60300A2E268 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 634E1DC02B8DB60300A2E268 /* Alamofire */; };
 		6375B4A22B8926400023DCBD /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375B4A12B8926400023DCBD /* LibraryView.swift */; };
 		6375B4A42B8947830023DCBD /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6375B4A32B8947830023DCBD /* PosterView.swift */; };
 		637CD82F2B87157C003287E7 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 637CD82E2B87157C003287E7 /* RealityKitContent */; };
@@ -28,6 +27,7 @@
 		6389E0B32B968E30001AE818 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6389E0B22B968E30001AE818 /* DetailsView.swift */; };
 		6398C09E2B9BC8340089863E /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6398C09D2B9BC8340089863E /* DocumentPicker.swift */; };
 		63DB36182B8E1EAD007E84B6 /* VideoDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DB36172B8E1EAD007E84B6 /* VideoDownloader.swift */; };
+		63EB1FE22B9E404D00BEF1B7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 63EB1FE12B9E404D00BEF1B7 /* Alamofire */; };
 		63EB571D2B88574E00FD5666 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB571C2B88574E00FD5666 /* Video.swift */; };
 		63EB57212B8862F400FD5666 /* VideoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EB57202B8862F400FD5666 /* VideoLibrary.swift */; };
 /* End PBXBuildFile section */
@@ -65,7 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				637CD82F2B87157C003287E7 /* RealityKitContent in Frameworks */,
-				634E1DC12B8DB60300A2E268 /* Alamofire in Frameworks */,
+				63EB1FE22B9E404D00BEF1B7 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +184,7 @@
 			name = ImmersiveVideoPlayer;
 			packageProductDependencies = (
 				637CD82E2B87157C003287E7 /* RealityKitContent */,
-				634E1DC02B8DB60300A2E268 /* Alamofire */,
+				63EB1FE12B9E404D00BEF1B7 /* Alamofire */,
 			);
 			productName = ImmersiveVideoPlayer;
 			productReference = 637CD8292B87157C003287E7 /* ImmersiveVideoPlayer.app */;
@@ -215,7 +215,7 @@
 			);
 			mainGroup = 637CD8202B87157C003287E7;
 			packageReferences = (
-				634E1DBF2B8DB60300A2E268 /* XCLocalSwiftPackageReference "../../Downloads/Alamofire-master" */,
+				63EB1FE02B9E404D00BEF1B7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 637CD82A2B87157C003287E7 /* Products */;
 			projectDirPath = "";
@@ -464,21 +464,26 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		634E1DBF2B8DB60300A2E268 /* XCLocalSwiftPackageReference "../../Downloads/Alamofire-master" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../Downloads/Alamofire-master";
+/* Begin XCRemoteSwiftPackageReference section */
+		63EB1FE02B9E404D00BEF1B7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.0;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		634E1DC02B8DB60300A2E268 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Alamofire;
-		};
 		637CD82E2B87157C003287E7 /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;
+		};
+		63EB1FE12B9E404D00BEF1B7 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63EB1FE02B9E404D00BEF1B7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
