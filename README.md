@@ -4,7 +4,7 @@
 
 As an immersive video creator, I was frustrated by the lack of apps at launch to playback immersive video. The headset didn’t ship with any way to play spherical video. I found applications like RealityPlayer and MoonPlayer on the App store to be buggy, lacking proper unwrapping, and low quality.
 
-Thanks to the efforts of many in the community, code examples began to emerge that solved this issue. A huge thank you to Mike Swanson for contributing his open source code which helped me figure out how to decode the MV-HEVC streams and create the appropriate geometry for high quality playback. The immersive video community would be lost without his efforts!
+Thanks to the efforts of many in the community, code examples began to emerge that solved this issue. A huge thank you to [Mike Swanson](https://blog.mikeswanson.com) for contributing his open source code which helped me figure out how to decode the MV-HEVC streams and create the appropriate geometry for high quality playback. The immersive video community would be lost without his efforts!
 
 I’ve taken what he has built and created a library front end around it so that creators like myself can host our videos and have a high quality way to play them back and share them with folks who would like to view content on Vision Pro.
 
@@ -67,6 +67,9 @@ Details View presented as an ornament
 ![Player Controls View available when tapping fingers in the Immersive View](https://www.lightsailvr.com/images/repo_readme_images/immersive.png)
 
 Player Controls View available when tapping fingers in the Immersive View
+
+## Usage
+Clone the repo and open the project in Xcode 15.2 (or later). Then run it in the Simulator or on a device. Be sure to have a valid JSON file and all your assets sorted out!
 
 ## Closing Thoughts
 
